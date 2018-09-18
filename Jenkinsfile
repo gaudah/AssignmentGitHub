@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine'
+            image 'node:carbon'
             args '-p 3000:3000'
         }
     }
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo npm install'
+                sh 'npm install'
             }
         }
         stage('Test') { 
