@@ -3,6 +3,6 @@ WORKDIR /app/docker
 COPY package.json /app/docker
 RUN npm install
 COPY . /app/docker
-CMD node clusterServer.js
+CMD node server.js
 EXPOSE 3000
 
