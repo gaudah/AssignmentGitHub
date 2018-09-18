@@ -1,20 +1,22 @@
-#!/usr/bin/env groovy
-
 pipeline {
-
-    agent any
-
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
+    }
+    environment {
+        CI = 'true' 
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
                 sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('Test') { 
             steps {
-                echo 'Testing...'
-                sh 'node server.js'
+                sh './jenkins/scripts/test.sh' 
             }
         }
     }
