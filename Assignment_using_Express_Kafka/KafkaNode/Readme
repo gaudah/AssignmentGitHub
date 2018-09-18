@@ -1,0 +1,15 @@
+//https://www.linkedin.com/pulse/introduction-kafka-using-nodejs-pankaj-panigrahi/
+//We have to send cid,pid instead of message using producer and that cid,pid get consumed by /bookCustProd api to book the product
+
+node Producer.js
+node Consumer.js
+node ../server.js
+
+Run:
+http://localhost:3001/sendPayload
+http://localhost:3002/consumePayload
+http://localhost:3002/handleRequest
+http://localhost:3002/getAllRequests
+
+Here we used the kafka to avoid dropping the booking requests because kafka maintains the queue (FIFO) to manage the requests prescribed and subscribed.
+

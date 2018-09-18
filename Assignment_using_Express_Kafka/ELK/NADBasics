@@ -1,0 +1,112 @@
+http://0.0.0.0:40724/documentation#!/Projects_RU/getV1ProjectProjectidMicroserviceidResources //even if we give microserviceId it will display result as []
+
+
+http://0.0.0.0:40724/documentation#!/Projects_RU/getV1ProjectProjectidTypeRuplanningResourcesBoardidReleaseid //working for userStoryPlanning but not for ProjectPlanning
+
+/v1/project/{projectId}/prototype/du-planning // child \"jira_project_key\" fails because [\"jira_project_key\" is required]
+
+changeRequestId?
+
+today:=
+bddService?
+bddService why in prottypePlanning?
+/v1/project/{projectId}/cost not getting what have done?
+
+/v1/project/{projectId}/{type}/board/{boardId}/releases
+why following result is coming because given a board id get the release id:=
+{
+  "is_success": true,
+  "result": [
+    {
+      "_id": "5b20b6c715abcf002f4c879f", //release id
+      "changeRequestId": null,
+      "endDate": "2018-06-29T06:16:26.000Z",
+      "startDate": "2018-06-18T06:16:26.000Z",
+      "name": "Sub Release 1"
+    }
+  ],
+  "message": "Success",
+  "status_code": 200
+}
+
+
+/v1/project/{projectId}/{type}/ru-planning/resources is giving empty result for prototype and project planning because array ref are incorrect
+and for userStory Common.getAllUniqueResourcesForProject got implemented wrongly i.e taking projectPlanning .sku and something
+v1/prototype/prototypeID not working
+
+
+
+/v1/prototype/comment
+following error is coming
+{
+  "error": "no response from server"
+}
+
+/v1/prototype/comment-resolve
+ and /v1/prototype/status-change following error is coming
+{
+  "is_success": false,
+  "result": {},
+  "message": "Error occurred",
+  "status_code": 400
+}
+
+
+/v1/prototype/done/user
+key":"RDPT0UPJ5C" where this comes from?
+it was jira_payload:
+
+how it got generated?
+
+errorMessages\":[\"No project could be found with key 'RDPT0UPJ5C'.\"],\"errors\":{}} error comes
+
+
+for /v1/project/{projectId}/feature/{featureId}/user-story PUT 
+Not understanding because of Jira
+{
+  "is_success": false,
+  "result": null,
+  "message": "Invalid comment Ids",
+  "status_code": 400
+}
+
+
+
+http://0.0.0.0:40724/documentation#!/User_Story/postV1ProjectProjectidFeatureFeatureidUserstoryUserstoryidComment //giving error
+{
+  "is_success": false,
+  "result": [],
+  "message": "Feature is not present in the system",
+  "status_code": 400
+}
+even if i have put the correct featureId
+
+
+/v1/project/{projectId}/feature-mapping-done POST not running
+error: 'Unauthorized',\n
+
+
+
+ method: 'GET', path: '/v1/project/{projectId}/micro-service-with-features' 
+because featureId and microserviceId if match - working fine
+
+method: 'GET', path: '/v1/project/{projectId}/micro-service' both are producing same output (above and this) so why have taken
+
+/v1/project/{projectId}/caas-micro-service/{portfolioId} what is it for? what have done in these?it always shows empty result
+
+
+
+method: 'POST', path: '/v2/micro-service', config: microServiceController.createMicroServiceRepository},
+    { method: 'POST', path: '/v1/micro-service/resources'
+
+
+why we are using redis in our project?just to speedup?
+
+ method: 'POST', path: '/v2/micro-service', config: microServiceController.createMicroServiceRepository},
+    { method: 'POST', path: '/v1/micro-service/resources', config: microServiceController.addMicroServiceResources}
+];
+1st api is for inserting microservice into db and to store in gitlab
+2nd api is for storing resource info i.e who are developing the microservice
+and changeRequestId means after completing the prototype planning,projectplanning and everything we want to start the flow again then changeRequestId is to be set
+
+we are using the redis in project because to we have 1user and different microserviice indepedently runing ..now to validate the same user in different microservices we use redis here else we have to validate in userMngn microservice DB

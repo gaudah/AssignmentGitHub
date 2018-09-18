@@ -1,0 +1,51 @@
+{"name":"myapp","hostname":"iauro","pid":3920,"level":30,"status":"started","msg":"foo bar message","time":"2018-08-29T07:00:08.010Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":4121,"level":30,"status":"started","msg":"hello all message","time":"2018-08-29T07:00:54.257Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":4232,"level":30,"status":"started","msg":"hello all message","time":"2018-08-29T07:01:08.739Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":4305,"level":30,"status":"started","msg":"hello all message","time":"2018-08-29T07:01:28.567Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":22005,"level":30,"status":"started","msg":"all welcome","time":"2018-08-29T10:47:45.983Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":22024,"level":30,"status":"started","msg":"thank you to all","time":"2018-08-29T10:48:04.689Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":22024,"level":30,"status":"started","msg":"thanks a lot","time":"2018-08-29T10:48:04.689Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":22024,"level":30,"status":"started","msg":"welcome","time":"2018-08-29T10:48:04.689Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":26231,"level":30,"status":"started","msg":"aaaaa","time":"2018-08-29T11:08:17.504Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":26291,"level":30,"status":"started","msg":"bbbbbbbb","time":"2018-08-29T11:08:33.449Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":26531,"level":30,"status":"started","msg":"uiuiuiuiui","time":"2018-08-29T11:09:11.965Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10109,"level":30,"status":"started","msg":"pucsd is too greate place to learn the things","time":"2018-09-04T05:44:23.598Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10109,"level":30,"msg":"came inside test function","time":"2018-09-04T05:44:23.620Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10109,"level":30,"msg":"articles are","time":"2018-09-04T05:44:23.620Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10109,"level":30,"msg":"came inside bulkIndex function","time":"2018-09-04T05:44:23.640Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10109,"level":30,"msg":"bulkBody is","time":"2018-09-04T05:44:23.641Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"status":"started","msg":"pucsd is too greate place to learn the things","time":"2018-09-04T05:47:17.747Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"msg":"came inside test function","time":"2018-09-04T05:47:17.777Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"msg":"articles are","time":"2018-09-04T05:47:17.777Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"msg":"came inside bulkIndex function","time":"2018-09-04T05:47:17.793Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"msg":"bulkBody is","time":"2018-09-04T05:47:17.794Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"msg":"here","time":"2018-09-04T05:47:18.068Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":10989,"level":30,"msg":"Successfully indexed","time":"2018-09-04T05:47:18.068Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"status":"started","msg":"pucsd is too greate place to learn the things","time":"2018-09-04T05:47:25.704Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"msg":"came inside test function","time":"2018-09-04T05:47:25.729Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"msg":"articles are","time":"2018-09-04T05:47:25.729Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"msg":"came inside bulkIndex function","time":"2018-09-04T05:47:25.747Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"msg":"bulkBody is","time":"2018-09-04T05:47:25.748Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"msg":"here","time":"2018-09-04T05:47:25.963Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11011,"level":30,"msg":"Successfully indexed","time":"2018-09-04T05:47:25.963Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"status":"started","msg":"pucsd is too greate place to learn the things","time":"2018-09-04T05:47:51.694Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"msg":"came inside test function","time":"2018-09-04T05:47:51.716Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"msg":"articles are","time":"2018-09-04T05:47:51.716Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"msg":"came inside bulkIndex function","time":"2018-09-04T05:47:51.736Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"msg":"bulkBody is","time":"2018-09-04T05:47:51.736Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"msg":"here","time":"2018-09-04T05:47:51.958Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11048,"level":30,"msg":"Successfully indexed","time":"2018-09-04T05:47:51.959Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"status":"started","msg":"pucsd is too greate place to learn the things","time":"2018-09-04T05:48:24.894Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"msg":"came inside test function","time":"2018-09-04T05:48:24.916Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"msg":"articles are","time":"2018-09-04T05:48:24.916Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"msg":"came inside bulkIndex function","time":"2018-09-04T05:48:24.935Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"msg":"bulkBody is","time":"2018-09-04T05:48:24.935Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"msg":"here","time":"2018-09-04T05:48:25.296Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11076,"level":30,"msg":"Successfully indexed","time":"2018-09-04T05:48:25.296Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"status":"started","msg":"pucsd is too greate place to learn the things","time":"2018-09-04T05:48:53.627Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"msg":"came inside test function","time":"2018-09-04T05:48:53.649Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"msg":"articles are","time":"2018-09-04T05:48:53.649Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"msg":"came inside bulkIndex function","time":"2018-09-04T05:48:53.667Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"msg":"bulkBody is","time":"2018-09-04T05:48:53.667Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"msg":"here","time":"2018-09-04T05:48:53.971Z","v":0}
+{"name":"myapp","hostname":"iauro","pid":11106,"level":30,"msg":"Successfully indexed","time":"2018-09-04T05:48:53.972Z","v":0}

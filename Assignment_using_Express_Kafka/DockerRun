@@ -1,0 +1,4 @@
+sudo docker build -t dockerimage2 .
+sudo docker rm $(sudo docker ps -a -q) // To check whether mongo can connect to docker or not
+sudo docker run -p 3000:3000 --net host --rm --name test_endpoints dockerimage2
+now run following in browser:= http://localhost:49161/

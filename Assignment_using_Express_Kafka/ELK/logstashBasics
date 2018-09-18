@@ -1,0 +1,87 @@
+
+To do live logging i.e logs will be added continuously and same logs should send to elasticSearch for insertion
+then we should run the following command and not have to do ctrl+c to stop it
+sudo bin/logstash -f /etc/logstash/conf.d/logs.conf 
+here logs.conf is the logfile
+
+ELK and Docker are the DevOps tools
+
+//Elastic is a database which store data in file
+//kibana when our backend is completely separated from server and we want to view the logs at server side then kibana is useful
+//logstash is just a middleware to pass the logs to elasticsearch.it auto create the index and pass to elasticsearch to store the data with index
+
+//Firstly start below things:=
+sudo service elasticsearch start 
+sudo service kibana start 
+sudo systemctl start logstash.service
+
+cd /usr/share/logstash/
+sudo bin/logstash -f /etc/logstash/conf.d/apache-01.conf 
+ 1999  curl -XGET 127.0.0.1:9200/_cat/indices?v
+ 2000  sudo bin/logstash -f /etc/logstash/conf.d/apache-01.conf 
+ 2001  curl -XGET 127.0.0.1:9200/_cat/indices?v
+ 2002  curl -XGET '127.0.0.1:9200/logstash-2016.10.25/_search?pretty'
+ 2003  curl -XGET 127.0.0.1:9200/_cat/indices?v
+ 2004  sudo bin/logstash -f /etc/logstash/conf.d/apache-01.conf 
+ 2005  curl -XGET 127.0.0.1:9200/_cat/indices?v
+ 2006  curl -XGET '127.0.0.1:9200/logstash-2018.08.30/_search?pretty'
+
+
+
+And apache-01.conf contains following:
+input {
+
+file {
+
+path => "/home/sumit/Assignment_Copy/Assignment_Docker_FunctionalTest_Elastic/Assignment/Assignment_using_Express_Kafka/myapp-error17.log"
+
+start_position => "beginning"
+
+sincedb_path => "/dev/null"
+
+}
+
+}
+
+filter {
+
+grok {
+
+match => { "message" => "%{COMBINEDAPACHELOG}" }
+
+}
+
+date {
+
+match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
+
+}
+
+geoip {
+
+source => "clientip"
+
+}
+
+}
+
+output {
+
+elasticsearch {
+
+hosts => ["localhost:9200"]
+
+}
+
+}
+
+
+//Following is the query to search a specific log in kibana->discover
+index-pattern.title:logstash-2018.08.30 AND type:index-pattern
+OR
+type:index-pattern AND index-pattern.title:logstash-2018.08.30
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and index-pattern.fields:name:message 
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and index-pattern.fields:name=message
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and (index-pattern.fields:name=message or index-pattern.fields:name=@timestamp )
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and (index-pattern.fields:name=message or @timestamp )
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and (index-pattern.fields:name=message or @timestamp )

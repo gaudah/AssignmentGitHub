@@ -1,0 +1,400 @@
+<html data-ng-app="app" ng-controller="myCtrl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body onload="showMsg()">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+ <timer interval="1000" countdown="60"></timer>
+
+    <h4>Mansoon sale of products:=</h4>
+
+    <p>Date = {{ today | date }}</p>
+
+    <br><br>
+    <p><b>Today's sale booked and remaining count is:</b></p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="lib/socket.io-client/socket.io.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="lib/angular-socket-io/socket.min.js"></script>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+  <script src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+
+<br><br>
+<!--<h4>{{name}}</h4>
+<br><br>-->
+<!--<div id = "message-container"></div>-->
+
+<br><br>
+
+
+<button ng-click="getRequest()" onClick="getValues()">
+        Click
+    </button>
+<h4>{{bookedQty}}</h4>
+<h4>{{RemainingQty}}</h4>
+<h4>{{UpdatedAt}}</h4>
+<br><br>
+<h4>{{msg}}</h4>
+<h4>{{msg1}}</h4>
+<h4>{{msg2}}</h4>
+<h4>{{msg17}}</h4>
+<h4>{{msg21}}</h4>
+<h4>{{id}}</h4>
+<h4>{{id21}}</h4>
+
+<h4>different msg for online clients</h4>
+<h4>{{data1}}</h4>
+<h4>Count of number of users online are:=</h4>
+<h4>{{countOnline}}</h4>
+<h4>Available number of users online are:=</h4>
+<!--<h4>{{onlineUsers}}</h4>-->
+
+<!--<ul>
+    <li ng-repeat="firstname in onlineUsers"><a href ng-click="sendMsgToUser(firstName)">{{firstname}}</a></li>
+</ul>-->
+
+<div ng-repeat="item in onlineUsers">
+    <div ng-click="sendMsgToUser(item)">{{ item }}</div>
+</div>
+
+
+<!--<title>Socket.IO chat</title>-->
+<!--<ul id="messages"></ul>
+<div>
+    <input id="m" ng-model="message" autocomplete="off" />
+    <button ng-click="send()">Send</button>
+</div>
+-->
+<!--<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font: 13px Helvetica, Arial; }
+    div { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+    div input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+    div button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+    #messages { list-style-type: none; margin: 0; padding: 0; }
+    #messages li { padding: 5px 10px; }
+    #messages li:nth-child(odd) { background: #eee; }
+
+</style>-->
+
+
+<!--<h4>{{data2}}</h4>-->
+
+
+<br><br>
+<!--
+<label>Enter name: <input type="text" ng-model="name"></label><br>
+  Hello <span ng-bind="name"></span>!
+<br><br>
+-->
+</body>
+</html>
+
+
+
+<script>
+
+
+
+function showMsg()
+{
+alert("Sale is only for 1 min so buy as many products as you want by clicking on'click' button")
+}
+var app = angular.module('app', []);
+
+app.directive('timer', function($timeout, $compile) {
+  return {
+restrict: 'E',
+scope: {
+  interval: '=', //don't need to write word again, if property name matches HTML attribute name
+  startTimeAttr: '=?startTime', //a question mark makes it optional
+  countdownAttr: '=?countdown', //what unit?
+  
+},
+template: '<div><p>'+
+  '<p>Time ends in : {{ hours }} hour<span data-ng-show="hours > 1">s</span>, ' +
+  '{{ minutes }} minutes, ' +
+  '{{ seconds }} seconds ' +
+  '<span data-ng-if="millis">, milliseconds: {{millis}}</span></p>' +
+  '<button data-ng-click="startbut()" data-ng-disabled="stoppedTime1" onClick="setFun()">Start</button>',
+
+link: function (scope, elem, attrs) {
+
+  
+  //Properties
+  scope.startTime = scope.startTimeAttr ? new Date(scope.startTimeAttr) : new Date();
+  var countdown = (scope.countdownAttr && parseInt(scope.countdownAttr, 10) > 0) ? parseInt(scope.countdownAttr, 10) : 60; //defaults to 60 seconds
+  
+  function tick () {
+    
+    //How many milliseconds have passed: current time - start time
+    scope.millis = new Date() - scope.startTime;
+    
+    if (countdown > 0) {
+      scope.millis = countdown * 1000;
+      countdown--;
+    } else if (countdown <= 0) {
+      scope.stop();
+	alert("Your time is up!");
+    }
+
+    scope.seconds = Math.floor((scope.millis / 1000) % 60);
+    scope.minutes = Math.floor(((scope.millis / (1000 * 60)) % 60));
+    scope.hours = Math.floor(((scope.millis / (1000 * 60 * 60)) % 24));
+    scope.days = Math.floor(((scope.millis / (1000 * 60 * 60)) / 24));
+
+    //is this necessary? is there another piece of unposted code using this?
+    scope.$emit('timer-tick', {
+      intervalId: scope.intervalId,
+      millis: scope.millis
+    });
+    
+    scope.$apply();
+    
+  }
+  
+  function resetInterval () {
+    if (scope.intervalId) {
+      clearInterval(scope.intervalId);
+      scope.intervalId = null;
+    }        
+  }
+  
+  scope.stop = function () {
+    scope.stoppedTime = new Date();
+    resetInterval();
+  }
+  
+  //if not used anywhere, make it a regular function so you don't pollute the scope
+  function start () {
+    resetInterval();
+    scope.intervalId = setInterval(tick, scope.interval); 
+    //console.log("val="+scope.intervalId)         
+  }
+  
+  scope.resume = function () {
+    scope.stoppedTime = null;
+    scope.startTime = new Date() - (scope.stoppedTime - scope.startTime);
+    start();
+  }
+
+  scope.startbut = function () {
+    //start();
+    resetInterval();
+    scope.intervalId = setInterval(tick, scope.interval); 
+    alert(scope.interval)
+
+  }
+
+  //Watches
+  scope.$on('time-start', function () {
+    start();
+  });
+  
+  scope.$on('timer-resume', function() {
+    scope.resume();
+  });
+  
+  scope.$on('timer-stop', function() {
+    scope.stop();
+  });
+  
+  //Cleanup
+  elem.on('$destroy', function () {
+    resetInterval();
+  });
+  
+}
+  };
+});
+
+function setFun()
+{
+$('button').prop('disabled', false);
+
+setTimeout(function() { 
+  $('button').prop('disabled', true)
+}, 60000);
+}
+
+
+
+
+
+app.controller('myCtrl', function($scope) {
+
+$scope.today = new Date();
+$scope.name = "aishu"
+
+var socket = io.connect();
+
+    $scope.send = function(){
+        socket.emit('chat message', $scope.message);
+        $scope.message="";
+    }
+    $scope.sendMsgToUser = function(id17) {
+        alert("Thank oyuiu  "+id17)
+    }
+
+
+    socket.on('chat message', function(msg){
+        var li=document.createElement("li");
+        li.appendChild(document.createTextNode(msg));
+        document.getElementById("messages").appendChild(li);
+    });
+
+
+
+//var socket17 = io("http://localhost:3000/socketio");
+//var socket = io('/my-namespace');
+socket.on('new_message', function(data) {
+/*
+$scope.$apply(function () {
+     $scope.name = "bhaiyudi";
+});*/
+
+
+$scope.$apply(function () {
+     //$scope.name =  data.bookqty;
+     $scope.bookedQty =  data.bookqty
+     $scope.RemainingQty =  data.remainingqty
+     $scope.UpdatedAt = data.updatedat
+})
+
+//$scope.user.name = data.bookqty
+})
+    socket.on('some_event', function(data) {
+
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.msg =  data.msg
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+//$scope.user.name = data.bookqty
+    })
+
+    socket.on('connectToRoom', function(data) {
+
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.msg1 =  data.msg1
+            //$scope.id =  id
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+//$scope.user.name = data.bookqty
+    })
+
+    socket.on('greetings17', function(data1) {
+
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.data1 =  data1
+            //$scope.id =  id
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+//$scope.user.name = data.bookqty
+    })
+
+
+
+    socket.on( 'greetings', function( message, id ) {
+        console.log( 'Got a message from the server: "' + message + "', my ID is: " + id );
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.msg2 =  message
+            $scope.id =  id
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+    });
+
+    socket.on( 'heyEveryone', function( message, id ) {
+        console.log( 'Got a message from the server: "' + message + "', my ID is: " + id );
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.msg17 =  message
+            $scope.id =  id
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+    });
+    socket.on( 'chainRoom', function( message, id ) {
+        console.log( 'Got a message from the server: "' + message + "', my ID is: " + id );
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.msg21 =  message
+            $scope.id21 =  id
+            //alert("socket id is "+socket.id)
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+    });
+    socket.on( 'show count of online users', function( message) {
+        //console.log( 'Got a message from the server: "' + message + "', my ID is: " + id );
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.countOnline =  message
+            //$scope.id21 =  id
+            //alert("socket id is "+socket.id)
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+    });
+
+    socket.on( 'available online users', function( message) {
+        //console.log( 'Got a message from the server: "' + message + "', my ID is: " + id );
+        $scope.$apply(function () {
+            //$scope.name =  data.bookqty;
+            $scope.onlineUsers =  message.split(",")
+            //$scope.id21 =  id
+            //alert("socket id is "+socket.id)
+            //$scope.RemainingQty =  data.remainingqty
+            //$scope.UpdatedAt = data.updatedat
+        });
+
+    });
+
+
+
+
+
+
+
+    //}
+
+
+
+    })
+
+
+/*var socket = io.connect();
+ socket.on('new_message', function(data) {
+
+            document.getElementById('message-container').innerHTML += '<div><b>' + 
+               "Data sent by server is: " + '</b>: ' + data.bookqty +" : "+ data.remainingqty +" : "+ data.updatedat +'</div>'
+
+      })
+*/
+
+
+</script>
+
+

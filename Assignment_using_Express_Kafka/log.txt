@@ -1,0 +1,8 @@
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12704,"level":20,"msg":"hello","time":"2018-08-02T05:11:49.644Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12716,"level":20,"msg":"hello","time":"2018-08-02T05:11:49.674Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12710,"level":20,"msg":"hello","time":"2018-08-02T05:11:49.652Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12709,"level":20,"msg":"hello","time":"2018-08-02T05:11:49.680Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12751,"level":20,"msg":"hello","time":"2018-08-02T05:11:51.231Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12763,"level":20,"msg":"hello","time":"2018-08-02T05:11:51.242Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12745,"level":20,"msg":"hello","time":"2018-08-02T05:11:51.178Z","v":0}
+{"name":"NAD-User-Management-PREPROD","hostname":"iauro","pid":12752,"level":20,"msg":"hello","time":"2018-08-02T05:11:51.231Z","v":0}

@@ -1,0 +1,10 @@
+//Following is the query to search a specific log in kibana->discover
+index-pattern.title:logstash-2018.08.30 AND type:index-pattern
+OR
+type:index-pattern AND index-pattern.title:logstash-2018.08.30
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and index-pattern.fields:name:message
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and index-pattern.fields:name=message
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and (index-pattern.fields:name=message or index-pattern.fields:name=@timestamp )
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and (index-pattern.fields:name=message or @timestamp )
+type:index-pattern AND index-pattern.title:logstash-2018.08.30 and (index-pattern.fields:name=message or @timestamp )
+
