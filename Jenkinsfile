@@ -4,7 +4,7 @@ pipeline {
 
     agent {
         docker {
-            image 'node'
+            image 'node:carbon'
             args '-u root'
         }
     }
@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'npm test'
+                sh 'npm server.js'
             }
         }
     }
