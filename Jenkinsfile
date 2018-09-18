@@ -5,7 +5,9 @@ pipeline {
     agent {
         docker {
             image 'node:carbon'
-            args '-u root'
+            echo 'checking docker'
+            sh 'sudo docker rm $(sudo docker ps -a -q)'
+            args '-u root -p 3000:3000'
         }
     }
 
