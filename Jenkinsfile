@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'node server.js'
+                sh 'npm run dev'
             }
         }
     }
