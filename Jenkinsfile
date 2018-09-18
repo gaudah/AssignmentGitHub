@@ -19,7 +19,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'npm run dev'
+                sh 'curl -XGET http://localhost:3000/getProdDetails'
+            }
+        }
+        stage('Success') {
+            steps {
+                echo 'Testing Success...'
+                sh 'echo success'
             }
         }
     }
